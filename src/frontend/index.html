@@ -9,7 +9,7 @@
     <body>
         <main>
             <!-- Navigation bar -->
-            <nav style="background-color:#124580">
+            <nav class="colorFondo" >
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo left" style="margin-left: 15px;">Smart Home</a>
                     <ul id="nav-mobile" class="right" style="margin-right: 15px;">
@@ -18,41 +18,115 @@
                 </div>
             </nav>	
             <!-- Page Body -->
-            <div class="container">
+            <div class="container">                        
                 <br/>
-                <h3>Smart Home Web Client!</h3>
+                <h3>Administrador de dispositivos</h3>
                 <br/>
                 <div class="row">
-                    <div class="input-field col s12 m12 l12 xl12">
-                        <textarea id="textarea_1" class="materialize-textarea" style="height: 150px;" readonly></textarea>
+                    <div class="col l4 s12 m6">
+                     <!-- Modal Trigger Agregar dispositivo -->
+                    <a id="btn-agregar-disp" data-target="modal_agregar_disp" class="waves-effect waves-light btn modal-trigger">
+                        <i class="material-icons right">add</i>Agregar Dispositivo</a>
                     </div>
-                    <div class="col s4 m4 l2 xl2">
-                        <button class="btn waves-effect waves-light button-view" onclick="SayHello();" name="hello_button">PRESS ME</button>
+                    <!-- Switch todos los dispositivos-->
+                </div> 
+                <!-- Fin de la primera fila de botones-->
+
+                <!-- Modal para preguntar si eliminar un dispositivo-->
+                <div id="modal-eliminar" class="modal">
+                    <div class="modal-content">
+                        <p>¿Confirma eliminar este dispositivo?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a id="confirma-eliminar" class="waves-effect waves-light btn">Confirmar</a>
+                        <a id="cancela-eliminar" class="waves-effect waves-light btn">Cancelar</a>
                     </div>
                 </div>
+
+
+                <!-- Modal Structure para agregar nuevo dispositivo -->
+                <div id="modal-new-device" class="modal">
+                    <div class="modal-content">
+                        <h5>Agregar nuevo dispositivo</h5>
+                        <div class="row">
+                            <!-- Comienza formulario -->
+                            <form class="col s12">
+                                <div class="row">     
+                                    <p>
+                                        <div class="row">     
+                                            <p>
+                                                <select class="browser-default" id="devType">
+                                                    <option value="" disabled selected>Choose your option</option>
+                                                    <option value=0>Iluminación</option>
+                                                    <option value=1>Persiana</option>
+                                                </select>
+                                            </p>
+                                        </div>    
+                                    </p>
+                                </div>                            
+                                <div class="row">
+                                    <div class="input-field col s10">
+                                        <input placeholder="Ej. Lámpara 1" id="name" type="text" class="validate">
+                                        <label for="name">Nombre del dispositivo</label>
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <div class="input-field col s10">
+                                        <input placeholder="Ej. Lámpara Cocina" id="description" type="text" class="validate">
+                                        <label for="name">Descripción del dispositivo</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Fin del formulario -->
+                        </div>
+                    </div>
+                    <!-- Botones Enviar/Cancelar del Modal-->
+                    <div class="row">
+                        <div class="modal-footer">
+                            <a id= "cancelar-nuevo-disp" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+                            <button id="confirm-device-add" class="btn waves-effect green" type="submit" name="action">Enviar
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin de la estructura del modal-->
+                <!-- Comienza la lista de dispositivos-->
+                <div class="row">
+                    <div class="col l8 s12 m12">
+                        <p id="lista"></p>
+                        <ul id="listaDisp" class="collection">
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-field col s12 m12 l12 xl12">
+                    <textarea id="textarea_1" class="materialize-textarea" style="height: 150px;" readonly></textarea>
+                </div>
+                   
+            </div>
             </div>	
         </main>
 		<!-- Page Footer -->
-        <footer class="page-footer" style="background-color:#124580">
+        <footer class="page-footer colorFondo" >
             <div class="container">
                 <div class="row">
                     <div class="col l6 s6">
                         <h5 class="white-text">Smart Home</h5>
-                        <p class="grey-text text-lighten-4">Copyright ### - 2021</p>
+                        <p class="grey-text text-lighten-4">Copyright 1200 B.C. - 2021 A.D.</p>
                     </div>
                     <div class="col l6 s6">
-                        <h5 class="white-text right-align">Contact</h5>
                         <p class="white-text right-align">
-                            <a class="grey-text text-lighten-3" href="!#">Email | </a>
-                            <a class="grey-text text-lighten-3" href="!#">Twitter | </a>
-                            <a class="grey-text text-lighten-3" href="!#">LinkedIn</a>
                         </p>
                     </div>
                 </div>
             </div>
         </footer>
 		<!--JavaScript at end of body for optimized loading-->
-		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="./static/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/MyFramework.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/user.js"></script>
+
+        
     </body>
   </html>
